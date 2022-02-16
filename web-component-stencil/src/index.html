@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/web-component-stencil.esm.js"></script>
+    <script nomodule src="/build/web-component-stencil.js"></script>
+    <style>
+      .side-nav ul {
+        list-style: none;
+      }
+
+      .side-nav li {
+        margin: 1rem 0;
+      }
+
+      .side-nav a {
+        text-decoration: none;
+        color: black;
+      }
+      #side-drawer-btn{
+        position: fixed;
+        right:2rem;
+        bottom:2rem
+      }
+    </style>
+  </head>
+  <body>
+    <button id="side-drawer-btn">Open Side Menu</button>
+    <sn-side-drawer titleText="Side Drawer">
+      <ul>
+        <li><a href="/">A Link</a></li>
+        <li><a href="/">Another Link</a></li>
+        <li><a href="/">A third Link</a></li>
+      </ul>
+    </nav>
+    </sn-side-drawer>
+    <sn-stock-price stock-symbol="AAPL"></sn-stock-price>
+    <sn-stock-finder></sn-stock-finder>
+
+
+    <script>
+      const sideDrawerButton = document.querySelector('#side-drawer-btn');
+      const sideDrawer = document.querySelector('sn-side-drawer');
+      sideDrawerButton.addEventListener('click', () => {
+        if (!sideDrawer.opened) {
+          console.log('Opening side drawer...');
+          // sideDrawer.open = true;
+          sideDrawer.open();
+        }
+      });
+      setTimeout(() => {
+        // sideDrawer.title = 'It changed!';
+        // sideDrawer.setAttribute('title', 'It changed via Attribute');
+      }, 3000);
+
+
+      const stockFinder= document.querySelector('sn-stock-finder');
+      stockFinder.addEventListener('snSymbolSelected', event => {
+
+      });
+
+    </script>
+  </body>
+</html>
