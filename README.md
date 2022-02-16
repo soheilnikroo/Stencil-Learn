@@ -1,2 +1,2 @@
 # Stencil-Learn
-This is all i learn from stencil
+This is what i learn from stencil.
